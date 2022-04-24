@@ -8,15 +8,16 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      //database: './src/js/database.js'
     },
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-       // Adding Webpack plugin to generate HTML and inject our bundles
-       new HtmlWebpackPlugin({
+      // Adding Webpack plugin to generate HTML and inject our bundles
+      new HtmlWebpackPlugin({
         template: './index.html',
         title: 'JATE'
       }),
@@ -45,11 +46,10 @@ module.exports = () => {
           },
         ],
       }),
-      
     ],
 
     module: {
-       // TODO: Add CSS loaders and babel to webpack.
+      // TODO: Add CSS loaders and babel to webpack.
       rules: [
         {
           test: /\.css$/i,
@@ -65,7 +65,7 @@ module.exports = () => {
               plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime']
             },
           },
-        },  
+        },
       ],
     },
   };
